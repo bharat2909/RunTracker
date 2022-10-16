@@ -17,4 +17,12 @@ This App shows a Foreground Notification whenever a run is started. The notifica
 Dependencies are injected using DAGGER-HILT.  
 Also unit testcases are written for database Testing.  
 
+Screeshots  
+![WhatsApp Image 2022-10-16 at 9 09 27 PM (1)](https://user-images.githubusercontent.com/52295247/196044474-5365c052-5710-4a69-8d47-ff75221c2c1e.jpeg)
+![WhatsApp Image 2022-10-16 at 9 09 27 PM](https://user-images.githubusercontent.com/52295247/196044478-3cb6ff44-b760-4aee-bd04-c1d90b9c7cfc.jpeg)
+![WhatsApp Image 2022-10-16 at 9 09 26 PM (2)](https://user-images.githubusercontent.com/52295247/196044481-bbf830f3-8eb6-46b3-bed3-881709b24b9d.jpeg)
+![WhatsApp Image 2022-10-16 at 9 09 26 PM (1)](https://user-images.githubusercontent.com/52295247/196044484-f21030e2-5e93-4f86-8a75-acd80fd11512.jpeg)
+![WhatsApp Image 2022-10-16 at 9 09 26 PM](https://user-images.githubusercontent.com/52295247/196044490-80690b68-ffb0-422d-881b-4976dd8156ab.jpeg)
+
+
 
