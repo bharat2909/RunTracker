@@ -1,4 +1,21 @@
 package com.androiddevs.RunTracker.Other
 
 object Constants {
+
+    const val RUN_DATABASE_NAME = "run_db"
+
+    const val ACTION_START_OR_RESUME_SERVICE = "ACTION_START_OR_RESUME_SERVICE"
+    const val ACTION_PAUSE_SERVICE = "ACTION_PAUSE_SERVICE"
+    const val ACTION_STOP_SERVICE ="ACTION_STOP_SERVICE"
+    const val ACTION_TRACKING_FRAGMENT = "ACTION_TRACKING_FRAGMENT"
+
+    const val NOTIFICATION_CHANNEL_ID = "TRACKING_CHANNEL"
+    const val NOTIFICATION_CHANNEL_NAME = "TRACKING NAME"
+    const val NOTIFICATION_ID = 1
+
+    const val SHARED_PREFERENCES_NAME = "sharedPref"
+    const val KEY_NAME = "KEY_NAME"
+    const val KEY_WEIGHT = "KEY_WEIGHT"
+    const val FIRST_TIME_TOGGLE = "FIRST_TIME_TOGGLE"
+
 }
