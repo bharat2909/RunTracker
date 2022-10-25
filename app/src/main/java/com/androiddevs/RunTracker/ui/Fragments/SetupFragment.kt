@@ -21,8 +21,10 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class SetupFragment: Fragment(R.layout.fragment_setup) {
 
-    @Inject
-    lateinit var sharedPref : SharedPreferences
+    private val viewModel : MainViewModel by viewModels()
+
+//    @Inject
+//    lateinit var sharedPref : SharedPreferences
 
     @set:Inject
     var isFirstTImeToggle = true
@@ -54,11 +56,7 @@ class SetupFragment: Fragment(R.layout.fragment_setup) {
         if(name.isEmpty() || weight.isEmpty()){
             return false
         }
-        sharedPref.edit()
-            .putString(KEY_NAME,name)
-            .putFloat(KEY_WEIGHT,weight.toFloat())
-            .putBoolean(FIRST_TIME_TOGGLE,false)
-            .apply()
+        viewModel.useSharedPref(name,weight)
 
         val toolbarText = "Let's Go, ${name}!"
         requireActivity().tvToolbarTitle.text = toolbarText

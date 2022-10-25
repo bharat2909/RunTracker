@@ -6,21 +6,18 @@ import android.view.View
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.androiddevs.RunTracker.Other.SortType
+import com.androiddevs.RunTracker.repositories.SortType
 import com.androiddevs.RunTracker.Other.TrackingUtility
 import com.androiddevs.RunTracker.R
 import com.androiddevs.RunTracker.adapters.RunAdapter
-import com.androiddevs.RunTracker.ui.MainActivity
 import com.androiddevs.RunTracker.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_run.*
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
-import java.util.jar.Manifest
 
 @AndroidEntryPoint
 class RunFragment: Fragment(R.layout.fragment_run), EasyPermissions.PermissionCallbacks {
@@ -45,13 +42,23 @@ class RunFragment: Fragment(R.layout.fragment_run), EasyPermissions.PermissionCa
 
         spFilter.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
 
+//            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, pos: Int, p3: Long) {
+//                when(pos){
+//                    0 -> viewModel.sortRuns(SortType.DATE)
+//                    1 -> viewModel.sortRuns(SortType.TIME)
+//                    2 -> viewModel.sortRuns(SortType.DISTANCE)
+//                    3 -> viewModel.sortRuns(SortType.SPEED)
+//                    4 -> viewModel.sortRuns(SortType.CALORIESBURNED)
+//                }
+//            }
+
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, pos: Int, p3: Long) {
                 when(pos){
-                    0 -> viewModel.sortRuns(SortType.DATE)
-                    1 -> viewModel.sortRuns(SortType.TIME)
-                    2 -> viewModel.sortRuns(SortType.DISTANCE)
-                    3 -> viewModel.sortRuns(SortType.SPEED)
-                    4 -> viewModel.sortRuns(SortType.CALORIESBURNED)
+                    0 -> viewModel.setSortType(SortType.DATE)
+                    1 -> viewModel.setSortType(SortType.TIME)
+                    2 -> viewModel.setSortType(SortType.DISTANCE)
+                    3 -> viewModel.setSortType(SortType.SPEED)
+                    4 -> viewModel.setSortType(SortType.CALORIESBURNED)
                 }
             }
 
@@ -61,6 +68,8 @@ class RunFragment: Fragment(R.layout.fragment_run), EasyPermissions.PermissionCa
         viewModel.runs.observe(viewLifecycleOwner, Observer {
             runAdapter.submitList(it)
         })
+
+
         fab.setOnClickListener {
             findNavController().navigate(R.id.action_runFragment_to_trackingFragment)
         }

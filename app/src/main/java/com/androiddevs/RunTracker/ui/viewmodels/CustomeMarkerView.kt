@@ -1,6 +1,7 @@
-package com.androiddevs.RunTracker.Other
+package com.androiddevs.RunTracker.ui.viewmodels
 
 import android.content.Context
+import com.androiddevs.RunTracker.Other.TrackingUtility
 import com.androiddevs.RunTracker.database.Run
 import com.github.mikephil.charting.components.MarkerView
 import com.github.mikephil.charting.data.Entry
@@ -40,7 +41,7 @@ class CustomeMarkerView(
         val distanceInKm = "${run.distanceInMetres / 1000f}km"
         tvDistance.text = distanceInKm
 
-        tvDuration.text = TrackingUtility.getFormattedTime(run.timeInMillis,false)
+        tvDuration.text = TrackingUtility.getFormattedTime(run.timeInMillis, false)
 
         val caloriesBurned = "${run.burnedCalories}kcal"
         tvCaloriesBurned.text = caloriesBurned

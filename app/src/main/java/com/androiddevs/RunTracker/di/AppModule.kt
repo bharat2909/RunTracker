@@ -9,7 +9,10 @@ import com.androiddevs.RunTracker.Other.Constants.FIRST_TIME_TOGGLE
 import com.androiddevs.RunTracker.Other.Constants.KEY_NAME
 import com.androiddevs.RunTracker.Other.Constants.KEY_WEIGHT
 import com.androiddevs.RunTracker.Other.Constants.RUN_DATABASE_NAME
+import com.androiddevs.RunTracker.database.RunDao
 import com.androiddevs.RunTracker.database.RunDatabase
+import com.androiddevs.RunTracker.repositories.MainRepository
+import com.androiddevs.RunTracker.repositories.iMainRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,6 +34,10 @@ object AppModule {
     @Provides
     @Singleton
     fun provideRunDao(database: RunDatabase) = database.getRunDao()
+
+    @Singleton
+    @Provides
+    fun provideMainRepository(dao:RunDao)=MainRepository(dao) as iMainRepository
 
     @Singleton
     @Provides

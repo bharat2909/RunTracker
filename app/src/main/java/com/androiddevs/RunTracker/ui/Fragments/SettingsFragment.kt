@@ -17,9 +17,10 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class SettingsFragment: Fragment(R.layout.fragment_settings) {
+    private val viewModel : MainViewModel by viewModels()
 
-    @Inject
-    lateinit var sharedPref : SharedPreferences
+//    @Inject
+//    lateinit var sharedPref : SharedPreferences
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,8 +36,8 @@ class SettingsFragment: Fragment(R.layout.fragment_settings) {
     }
 
     private fun loadChangesFromSharedPref(){
-        val name = sharedPref.getString(KEY_NAME,"")
-        val weight = sharedPref.getFloat(KEY_WEIGHT,80f)
+        val name = viewModel.sharedPref.getString(KEY_NAME,"")
+        val weight = viewModel.sharedPref.getFloat(KEY_WEIGHT,80f)
         etName.setText(name)
         etWeight.setText(weight.toString())
     }
@@ -47,10 +48,7 @@ class SettingsFragment: Fragment(R.layout.fragment_settings) {
         if(name.isEmpty() || weight.isEmpty()){
             return false
         }
-        sharedPref.edit()
-            .putString(KEY_NAME,name)
-            .putFloat(KEY_WEIGHT,weight.toFloat())
-            .apply()
+        viewModel.useSharedPref(name, weight)
         val toolbarText = "Let's Go, ${name}!"
         requireActivity().tvToolbarTitle.text = toolbarText
         return true

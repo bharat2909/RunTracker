@@ -7,10 +7,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.androiddevs.RunTracker.Other.CustomeMarkerView
+import com.androiddevs.RunTracker.ui.viewmodels.CustomeMarkerView
 import com.androiddevs.RunTracker.Other.TrackingUtility
 import com.androiddevs.RunTracker.R
-import com.androiddevs.RunTracker.ui.viewmodels.MainViewModel
 import com.androiddevs.RunTracker.ui.viewmodels.StatisticsViewModel
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
