@@ -48,7 +48,7 @@ class SettingsFragment: Fragment(R.layout.fragment_settings) {
         if(name.isEmpty() || weight.isEmpty()){
             return false
         }
-        viewModel.useSharedPref(name, weight)
+        viewModel.updateSharedPref(name, weight)
         val toolbarText = "Let's Go, ${name}!"
         requireActivity().tvToolbarTitle.text = toolbarText
         return true

@@ -48,6 +48,48 @@ class MainViewModelTest{
         val allRuns = viewModel.runsSortedByDate.getOrAwaitValue()
         assertThat(allRuns).contains(run)
     }
+
+    @Test
+    fun sortOrderByTimeTest()= runBlockingTest{
+        val run = Run(null,0L,100,70,9000,10F)
+        val run1 = Run(null,100L,300,300,29000,9F)
+        val run2 = Run(null,200L,250,280,24000,11F)
+        viewModel.insertRun(run)
+        viewModel.insertRun(run1)
+        viewModel.insertRun(run2)
+
+        val allRuns = viewModel.runsSortedByRunningTime.getOrAwaitValue()
+        val testRun= allRuns[0]
+        assertThat(testRun).isEqualTo(run1)
+    }
+
+    @Test
+    fun sortOrderByDistanceTest()= runBlockingTest{
+        val run = Run(null,0L,100,70,9000,10F)
+        val run1 = Run(null,100L,300,300,29000,9F)
+        val run2 = Run(null,200L,250,280,24000,11F)
+        viewModel.insertRun(run)
+        viewModel.insertRun(run1)
+        viewModel.insertRun(run2)
+
+        val allRuns = viewModel.runsSortedByDistance.getOrAwaitValue()
+        val testRun= allRuns[0]
+        assertThat(testRun).isEqualTo(run1)
+    }
+
+    @Test
+    fun sortOrderByCaloriesBurnedTest()= runBlockingTest{
+        val run = Run(null,0L,100,70,9000,10F)
+        val run1 = Run(null,100L,300,300,29000,9F)
+        val run2 = Run(null,200L,250,280,24000,11F)
+        viewModel.insertRun(run)
+        viewModel.insertRun(run1)
+        viewModel.insertRun(run2)
+
+        val allRuns = viewModel.runsSortedByCaloriesBurned.getOrAwaitValue()
+        val testRun= allRuns[0]
+        assertThat(testRun).isEqualTo(run1)
+    }
 }
 
 private fun <T> LiveData<T>.getOrAwaitValue(

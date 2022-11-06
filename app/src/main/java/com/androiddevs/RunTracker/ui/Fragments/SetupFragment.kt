@@ -23,8 +23,7 @@ class SetupFragment: Fragment(R.layout.fragment_setup) {
 
     private val viewModel : MainViewModel by viewModels()
 
-//    @Inject
-//    lateinit var sharedPref : SharedPreferences
+
 
     @set:Inject
     var isFirstTImeToggle = true
@@ -56,7 +55,7 @@ class SetupFragment: Fragment(R.layout.fragment_setup) {
         if(name.isEmpty() || weight.isEmpty()){
             return false
         }
-        viewModel.useSharedPref(name,weight)
+        viewModel.updateSharedPref(name,weight)
 
         val toolbarText = "Let's Go, ${name}!"
         requireActivity().tvToolbarTitle.text = toolbarText
